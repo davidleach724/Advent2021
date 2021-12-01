@@ -1,8 +1,9 @@
 const day1data = require('../data/day1data');
+const depthData = day1data.depth
 
 const findIncreaseDepth = () => {
-  return day1data.depth.reduce((acc, elem, i) => {
-    if (elem < day1data.depth[i + 1]) {
+  return depthData.reduce((acc, depth, i) => {
+    if (depth < depthData[i + 1]) {
       acc++;
     }
     return acc;
@@ -11,12 +12,12 @@ const findIncreaseDepth = () => {
 
 console.log('p1: ', findIncreaseDepth());
 
-const findIncreseWindow = () => {
-  return day1data.depth.reduce((acc, elem, i) => {
-    let window1 = elem + day1data.depth[i + 1] + day1data.depth[i + 2];
+const findIncreaseWindow = () => {
+  return depthData.reduce((acc, depth, i) => {
+    let window1 = depth + depthData[i + 1] + depthData[i + 2];
 
     let window2 =
-      day1data.depth[i + 1] + day1data.depth[i + 2] + day1data.depth[i + 3];
+      depthData[i + 1] + depthData[i + 2] + depthData[i + 3];
 
     if (window1 < window2) {
       acc++;
@@ -25,16 +26,16 @@ const findIncreseWindow = () => {
   }, 0);
 };
 
-console.log('p2: ', findIncreseWindow());
+console.log('p2: ', findIncreaseWindow());
 
-// const findIncreseWindow = () => {
+// const findIncreaseWindow = () => {
 //   let acum = 0;
-//   for (let i = 0; i < day1data.depth.length; i++) {
+//   for (let i = 0; i < depthData.length; i++) {
 //     let window1 =
-//       day1data.depth[i] + day1data.depth[i + 1] + day1data.depth[i + 2];
+//       depthData[i] + depthData[i + 1] + depthData[i + 2];
 
 //     let window2 =
-//       day1data.depth[i + 1] + day1data.depth[i + 2] + day1data.depth[i + 3];
+//       depthData[i + 1] + depthData[i + 2] + depthData[i + 3];
 
 //     if (window1 < window2) {
 //       acum++;
