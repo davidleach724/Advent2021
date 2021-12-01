@@ -1,5 +1,5 @@
 const day1data = require('../data/day1data');
-const depthData = day1data.depth
+const depthData = day1data.depth;
 
 const findIncreaseDepth = () => {
   return depthData.reduce((acc, depth, i) => {
@@ -10,14 +10,10 @@ const findIncreaseDepth = () => {
   }, 0);
 };
 
-console.log('p1: ', findIncreaseDepth());
-
 const findIncreaseWindow = () => {
   return depthData.reduce((acc, depth, i) => {
     let window1 = depth + depthData[i + 1] + depthData[i + 2];
-
-    let window2 =
-      depthData[i + 1] + depthData[i + 2] + depthData[i + 3];
+    let window2 = depthData[i + 1] + depthData[i + 2] + depthData[i + 3];
 
     if (window1 < window2) {
       acc++;
@@ -26,7 +22,10 @@ const findIncreaseWindow = () => {
   }, 0);
 };
 
-console.log('p2: ', findIncreaseWindow());
+console.log('puzzle 1: ', findIncreaseDepth());
+console.log('puzzle 2: ', findIncreaseWindow());
+
+// Original way of solving puzzle 2
 
 // const findIncreaseWindow = () => {
 //   let acum = 0;
@@ -43,5 +42,3 @@ console.log('p2: ', findIncreaseWindow());
 //   }
 //   return acum;
 // };
-
-
