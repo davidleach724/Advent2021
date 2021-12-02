@@ -4,23 +4,24 @@ const directionsData = day2data.directions
 const determineDepth = () => {
   let horizontal = 0
   let depth = 0
-
+  
   directionsData.forEach(direction => {
+    let value = parseInt(direction.split(' ')[1])
 
     if (direction.split(' ')[0] === 'forward') {
-      horizontal = horizontal + parseInt(direction.split(' ')[1])
+      horizontal = horizontal + value
     }
 
     if (direction.split(' ')[0] === 'down') {
-      depth = depth - parseInt(direction.split(' ')[1])
+      depth = depth - value
     }
 
     if (direction.split(' ')[0] === 'up') {
-      depth = depth + parseInt(direction.split(' ')[1])
+      depth = depth + value
     }
   })
 
-  return horizontal*depth
+  return horizontal*depth*-1
 }
 
 console.log(determineDepth());
