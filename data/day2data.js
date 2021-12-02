@@ -1001,4 +1001,14 @@ const directions = [
 'forward 2'
 ]
 
+const testDirections = [
+  'forward 5',
+  'down 5',
+  'forward 8',
+  'up 3',
+  'down 8',
+  'forward 2'
+]
+
 exports.directions = directions
+exports.testDirections = testDirections
