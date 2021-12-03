@@ -32,3 +32,4 @@ const determineDepth = () => {
 
 console.log(determineDepth());
 // incorrect answer 3630088 - too low
+// depth was not accumulating previous depth data
