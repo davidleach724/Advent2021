@@ -1,4 +1,46 @@
-const day3data = require('../data/day3data')
-const diagnosticTest = day3data.diagnosticTest
+const day3data = require('../data/day3data');
+const diagnosticTest = day3data.diagnosticTest;
+const diagnosticData = day3data.diagnosticReport;
 
-console.log(diagnosticTest[0])
+//go through each report
+//split report into indiv bits
+//loop through split report and add tally
+
+//determine length of array
+//if total of pos is > 1/2 array.length, value is 1
+
+//00100
+// 0 0 1 0 0
+
+const findPowerConsumption = () => {
+  let reportBitLength = diagnosticTest[0].length
+  let gammaRate = ''
+  let epsilonRate = ''
+
+
+  const totalObjectReport = diagnosticTest.reduce((obj, report) => {
+    report.split('').forEach((bit, i) => {
+      if (!obj[i]) {
+        obj[i] = 0;
+      }
+      obj[i] = obj[i] + parseInt(bit);
+    });
+
+    return obj;
+  }, {});
+
+  for (let i=0; i < reportBitLength; i++) {
+    console.log('<><>', totalObjectReport[i])
+    if (totalObjectReport[i] > (diagnosticTest.length/2)) {
+      gammaRate = gammaRate + '1'
+      epsilonRate = epsilonRate + '0'
+    } else {
+      epsilonRate = epsilonRate + '1'
+      gammaRate = gammaRate + '0'
+    }
+  }
+
+  return ['gamma: ', gammaRate, 'eps: ', epsilonRate]
+};
+
+console.log(findPowerConsumption());
