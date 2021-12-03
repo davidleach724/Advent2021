@@ -12,13 +12,12 @@ const diagnosticData = day3data.diagnosticReport;
 //00100
 // 0 0 1 0 0
 
-const findPowerConsumption = () => {
-  let reportBitLength = diagnosticTest[0].length
-  let gammaRate = ''
-  let epsilonRate = ''
+const findPowerConsumption = (reportData) => {
+  let reportBitLength = reportData[0].length;
+  let gammaRate = '';
+  let epsilonRate = '';
 
-
-  const totalObjectReport = diagnosticTest.reduce((obj, report) => {
+  const totalObjectReport = reportData.reduce((obj, report) => {
     report.split('').forEach((bit, i) => {
       if (!obj[i]) {
         obj[i] = 0;
@@ -29,18 +28,17 @@ const findPowerConsumption = () => {
     return obj;
   }, {});
 
-  for (let i=0; i < reportBitLength; i++) {
-    console.log('<><>', totalObjectReport[i])
-    if (totalObjectReport[i] > (diagnosticTest.length/2)) {
-      gammaRate = gammaRate + '1'
-      epsilonRate = epsilonRate + '0'
+  for (let i = 0; i < reportBitLength; i++) {
+    if (totalObjectReport[i] > reportData.length / 2) {
+      gammaRate = gammaRate + '1';
+      epsilonRate = epsilonRate + '0';
     } else {
-      epsilonRate = epsilonRate + '1'
-      gammaRate = gammaRate + '0'
+      epsilonRate = epsilonRate + '1';
+      gammaRate = gammaRate + '0';
     }
   }
 
-  return ['gamma: ', gammaRate, 'eps: ', epsilonRate]
+  return ['gamma: ', gammaRate, 'eps: ', epsilonRate];
 };
 
-console.log(findPowerConsumption());
+console.log(findPowerConsumption(diagnosticTest));
