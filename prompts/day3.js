@@ -38,7 +38,7 @@ const findPowerConsumption = (reportData) => {
     }
   }
 
-  return (parseInt(gammaRate, 2) * parseInt(epsilonRate, 2))
+  return parseInt(gammaRate, 2) * parseInt(epsilonRate, 2);
 };
 
 console.log(findPowerConsumption(diagnosticData));
